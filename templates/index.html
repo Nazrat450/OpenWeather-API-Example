@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='app.css') }}">
+
+    <title>Weather App</title>
+    
+</head>
+<body>
+    <div class="container"> 
+    <h1>Hitchhike's Guide To The Weather</h1>
+    <table>
+        <tr>
+            <th>Location</th>
+            <th>Temperature (°C)</th>
+            <th>Condition</th>
+        </tr>
+        {% for data in weather_data %}
+        <tr>
+            <td>{{ data.location }}</td>
+            <td>{{ data.temperature }}</td>
+            <td>{{ data.condition }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+</body>
+</html>
