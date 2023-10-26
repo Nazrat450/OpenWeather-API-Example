@@ -15,8 +15,9 @@
         <h1>Hitchhike's Guide To The Weather</h1>
         <form action="/" method="post">
             <input type="text" name="location" placeholder="Enter location">
-            <input type="submit" value="Get Weather">
-            <button id="export-btn">Export to CSV</button>
+            <input type="submit" value="Add Location">
+            
+           
         </form>
         
         <table>
@@ -24,19 +25,24 @@
                 <th>Location</th>
                 <th>Temperature (°C)</th>
                 <th>Condition</th>
+                <th><button id="export-btn">Export</button></th>
+                
             </tr>
             {% for data in weather_data %}
             <tr onclick="openMap('{{ data.location }}')">
                 <td>{{ data.location }}</td>
                 <td>{{ data.temperature }}</td>
                 <td>{{ data.condition }}</td>
+                <td></td>
             </tr>
             {% endfor %}
+            
         </table>
-
+        
+        <a href="/clear" class="clear-btn">Clear</a>
         <iframe id="mapFrame" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-
+    
     <script>
         // open Google Maps
         function openMap(location) {
